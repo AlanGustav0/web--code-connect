@@ -21,9 +21,12 @@ const post = {
 };
 
 async function getAllPosts() {
-  const response = await fetch("http://localhost:3042/posts");
-  if (!response.ok) {
+  const response = await fetch("http://localhost:3042/posts").catch((error) => {
     logger.error("Ops, não foi possível recuperar os posts");
+    return null;
+  });
+  if (!response || !response.ok) {
+    logger.error("Problema ao recuperar os posts");
     return [];
   }
 
@@ -33,8 +36,11 @@ async function getAllPosts() {
 
 export default async function Home() {
   const posts = await getAllPosts();
-  return <main className={styles.page}>
-    {posts.map((post) => <CardPost post={post} />)}
-    
-  </main>;
+  return (
+    <main className={styles.page}>
+      {posts.map((post) => (
+        <CardPost post={post} />
+      ))}
+    </main>
+  );
 }
