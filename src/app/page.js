@@ -1,4 +1,6 @@
 import { CardPost } from "@/components/CardPost";
+import logger from "@/log";
+import styles from "./page.module.css";
 
 const post = {
   id: 1,
@@ -18,8 +20,21 @@ const post = {
   },
 };
 
-export default function Home() {
-  return <main>
-    <CardPost post={post} />
+async function getAllPosts() {
+  const response = await fetch("http://localhost:3042/posts");
+  if (!response.ok) {
+    logger.error("Ops, não foi possível recuperar os posts");
+    return [];
+  }
+
+  logger.info("Posts recuperados com sucesso");
+  return response.json();
+}
+
+export default async function Home() {
+  const posts = await getAllPosts();
+  return <main className={styles.page}>
+    {posts.map((post) => <CardPost post={post} />)}
+    
   </main>;
 }
