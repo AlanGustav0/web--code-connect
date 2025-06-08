@@ -27,6 +27,22 @@
     padding: 10px;
 }
 
+.cardCodeTitle{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    max-width: 300px;
+}
+
+.cardCode{
+    color: #fff;
+    font-size: 12px;
+    margin-top: 1rem;
+    background-color: #171d1f;
+    padding: 1rem;
+    max-width: 470px;
+}
+
 .link{
     cursor: pointer;
     text-decoration-line: none;

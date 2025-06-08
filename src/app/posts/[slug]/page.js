@@ -1,6 +1,8 @@
 import logger from "@/log";
 import { remark } from "remark";
 import html from "remark-html";
+import style from "./page.module.css";
+import { CardPost } from "@/components/CardPost";
 
 async function getPostsBySlug(slug) {
   const url = `http://localhost:3042/posts?slug=${slug}`;
@@ -24,12 +26,10 @@ async function getPostsBySlug(slug) {
 
   const post = data[0];
 
-  const processedContent = await remark()
-  .use(html)
-  .process(post.markdown);
-    const contentHtml = processedContent.toString();
+  const processedContent = await remark().use(html).process(post.markdown);
+  const contentHtml = processedContent.toString();
 
-    post.markdown = contentHtml;
+  post.markdown = contentHtml;
 
   return post;
 }
@@ -40,10 +40,12 @@ const PagePosts = async ({ params }) => {
     return <h1>Post não encontrado</h1>;
   }
   return (
-  <><h1 style={{ color: 'white' }}>{post.title}</h1>;
-    
-    <div style={{ padding: 16, background: 'white' }} dangerouslySetInnerHTML={{ __html: post.markdown }} />
-  </>)
+    <>
+      <div className={style.main}>
+        <CardPost key={post.id} post={post} hasDescription={true} hasSearch={true}/>
+      </div>
+    </>
+  );
 };
 
 export default PagePosts;
