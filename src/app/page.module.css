@@ -1,0 +1,22 @@
+.page{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+}
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.links {
+  text-align: center;
+  flex-grow: 1;
+}
+
+.links link {
+  margin: 0 8px;
+}

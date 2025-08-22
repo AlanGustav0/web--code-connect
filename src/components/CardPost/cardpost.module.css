@@ -1,0 +1,49 @@
+.cardpost{
+    color: #fff;
+    max-width: 500px;
+    background-color: #171d1f;
+}
+
+.cardPostHeader{
+    background-color: #626262;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cardPostContent{
+    margin-bottom: 2rem;
+    padding: 10px;
+}
+
+.cardPostImage{
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 0px 5px 15px #272525;
+}
+.cardPostFooter{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.cardCodeTitle{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    max-width: 300px;
+}
+
+.cardCode{
+    color: #fff;
+    font-size: 12px;
+    margin-top: 1rem;
+    background-color: #171d1f;
+    padding: 1rem;
+    max-width: 470px;
+}
+
+.link{
+    cursor: pointer;
+    text-decoration-line: none;
+}
